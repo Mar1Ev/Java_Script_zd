@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<H1>  сформировать массив из 15 рандомных чисел -10\30
+</H1>
+</head>
+<body>
+
+	<meta charset = "utf-8">
+	<script type="text/javascript">
+        var m = [];
+        var m1 = [];
+        var min = -10;
+        var max = 30;
+        var z = 0, x = 0, y = 0;
+        var z1 = 0, x1 = 0;
+        // 1. создание массива на 15 чисел от -10 до 30
+        for (let i = 0; i < 15; i++) {
+  			m1[i] = Math.floor(Math.random() * (max - min)) + min
+		}
+        alert (m1);
+        // 2. все отрицательные значения в массиве возводятся в квадрат
+        for (let i = 0; i < 15; i++) {
+  			if (m1[i]<0) {
+  				m[i] = m1[i]*m1[i]
+  			} else {
+          m[i] = m1[i]
+        }
+		}
+		alert (m);
+		//3. счёт нулей + среднее арифметическое
+		for (let i = 0; i < 15; i++) {
+  			if (m1[i]<0) {
+  				z = z + 1;
+  				z1= z1 + m1[i];
+  			} else if (m1[i]>0) {
+  				x = x + 1;
+  				x1 = x1 + m1[i];
+  			} else {
+  				y = y + 1
+  			}
+		}
+		alert ('количество нулей: '+ y + '\n' + 'среднее арифметическое отрицательных чисел: ' + (z1/z) + '\n'+ 'среднее арифметическое положительных чисел: '+ (x1/x));
+		// симулятор случайных красный\чёрный\белый (0\1\2) - соответственно создаёт массив из 3х значений
+
+		function Red_Black_White() {
+			let rbw = [];
+			for (let i = 0; i < 3; i++) {
+  			rbw[i] = Math.floor(Math.random() * 2)
+			}
+			return rbw
+		}
+
+		alert ( Red_Black_White());
+
+    // симулятор случайных значений считает сколько выпало красных
+    var n =[], count = 0;
+
+    for (i1=0; i1<=1000000; i1++) {
+       n[i1] = Math.floor(Math.random()*2);
+       if (n[i1] < 1) {
+        count = count + 1
+       }
+    }
+
+    alert(count + ' выпал красный');
+    //анализ последовательности
+    
+
+
+	</script>
+</body>
+</html>
